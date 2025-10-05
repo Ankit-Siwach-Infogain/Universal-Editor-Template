@@ -1,10 +1,10 @@
 {
   "mappings": [
-    "/content/aem-boilerplate/:/",
-    "/content/aem-boilerplate/configuration:/.helix/config.json",
-    "/content/aem-boilerplate/metadata:/metadata.json"
+    "/content/Ankit-Universal-Editor/:/",
+    "/content/Ankit-Universal-Editor/configuration:/.helix/config.json",
+    "/content/Ankit-Universal-Editor/metadata:/metadata.json"
   ],
   "includes": [
-    "/content/aem-boilerplate/"
+    "/content/Ankit-Universal-Editor/"
   ]
 }
