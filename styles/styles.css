@@ -1,86 +1,86 @@
 /*
- * Copyright 2020 Adobe. All rights reserved.
+ * Copyright 2020 Adobe.
  * Licensed under the Apache License, Version 2.0
- * A modern, clean, and light theme applied site-wide.
+ * Modern Professional Light Theme – Subtle gradient tones, visible UI contrast,
+ * and refined shadows for better visual depth.
  */
 
 :root {
-  /* ✨ Theme Colors */
-  --background-color: #ffffff;
-  --light-color: #f9fafb;
-  --dark-color: #333333;
-  --text-color: #212121;
-  --link-color: #1d4ed8;
-  --link-hover-color: #0f3cb3;
-  --border-color: #e5e7eb;
+  /* 🎨 Theme Colors */
+  --background-color: #fdfdfd;
+  --light-color: #f5f7fa;
+  --dark-color: #1a1a1a;
+  --text-color: #222831;
+  --accent-color: #2563eb; /* Bright but elegant blue */
+  --accent-hover: #1d4ed8;
+  --border-color: #d0d7e2;
   --shadow-color: rgba(0, 0, 0, 0.08);
-  --card-shadow: 0 4px 10px var(--shadow-color);
-  --hover-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  --card-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  --hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 
-  /* ✨ Fonts */
-  --body-font-family: 'Roboto', 'Segoe UI', sans-serif;
-  --heading-font-family: 'Roboto Condensed', 'Segoe UI', sans-serif;
+  /* ✍️ Typography */
+  --body-font-family: "Inter", "Roboto", sans-serif;
+  --heading-font-family: "Poppins", "Roboto Condensed", sans-serif;
 
-  /* ✨ Body sizes */
+  /* 🧱 Font Sizes */
   --body-font-size-m: 18px;
   --body-font-size-s: 16px;
   --body-font-size-xs: 14px;
 
-  /* ✨ Heading sizes */
-  --heading-font-size-xxl: 48px;
-  --heading-font-size-xl: 36px;
-  --heading-font-size-l: 28px;
-  --heading-font-size-m: 22px;
+  --heading-font-size-xxl: 52px;
+  --heading-font-size-xl: 40px;
+  --heading-font-size-l: 30px;
+  --heading-font-size-m: 24px;
   --heading-font-size-s: 20px;
   --heading-font-size-xs: 18px;
 
-  /* ✨ Navigation */
+  /* Nav Height */
   --nav-height: 64px;
 }
 
-/* Fallback fonts */
+/* ✨ Fallback Fonts */
 @font-face {
   font-family: roboto-condensed-fallback;
   size-adjust: 88.82%;
-  src: local('Arial');
+  src: local("Arial");
 }
 @font-face {
   font-family: roboto-fallback;
   size-adjust: 99.529%;
-  src: local('Arial');
+  src: local("Arial");
 }
 
-/* ✨ Responsive typography */
+/* ✨ Responsive Adjustments */
 @media (width >= 900px) {
   :root {
     --body-font-size-m: 17px;
     --body-font-size-s: 15px;
     --body-font-size-xs: 13px;
 
-    --heading-font-size-xxl: 42px;
-    --heading-font-size-xl: 32px;
+    --heading-font-size-xxl: 46px;
+    --heading-font-size-xl: 34px;
     --heading-font-size-l: 26px;
-    --heading-font-size-m: 21px;
+    --heading-font-size-m: 22px;
   }
 }
 
-/* ✨ Global structure */
+/* ✨ Base Styles */
 body {
   display: none;
   margin: 0;
-  background-color: var(--background-color);
+  background: linear-gradient(to bottom right, #ffffff, #f7f9fc);
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.7;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background 0.4s ease, color 0.3s ease;
 }
 
 body.appear {
   display: block;
 }
 
-/* Header & Footer visibility control */
+/* ✨ Header/Footer Handling */
 header {
   height: var(--nav-height);
 }
@@ -100,8 +100,9 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font-family);
   font-weight: 600;
   line-height: 1.25;
-  scroll-margin: 40px;
   color: var(--dark-color);
+  letter-spacing: 0.3px;
+  scroll-margin: 40px;
 }
 
 h1 { font-size: var(--heading-font-size-xxl); }
@@ -111,7 +112,7 @@ h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
 
-/* ✨ Paragraphs & lists */
+/* ✨ Paragraphs and Lists */
 p, dl, ol, ul, pre, blockquote {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
@@ -126,12 +127,11 @@ pre {
   padding: 16px;
   border-radius: 8px;
   background-color: var(--light-color);
-  overflow-x: auto;
-  white-space: pre;
   border: 1px solid var(--border-color);
+  overflow-x: auto;
 }
 
-/* ✨ Main layout */
+/* ✨ Layout */
 main > div {
   margin: 40px 16px;
 }
@@ -141,85 +141,63 @@ input, textarea, select, button {
 
 /* ✨ Links */
 a:any-link {
-  color: var(--link-color);
+  color: var(--accent-color);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, box-shadow 0.3s ease;
 }
 a:hover {
-  color: var(--link-hover-color);
+  color: var(--accent-hover);
   text-decoration: underline;
+  box-shadow: 0 1px 0 var(--accent-hover);
 }
 
 /* ✨ Buttons */
 a.button:any-link,
 button {
-  box-sizing: border-box;
   display: inline-block;
-  max-width: 100%;
-  margin: 12px 0;
-  border: 2px solid transparent;
+  border: none;
   border-radius: 2em;
-  padding: 0.6em 1.4em;
-  font-weight: 500;
-  line-height: 1.25;
-  text-align: center;
-  background-color: var(--link-color);
-  color: #fff;
+  padding: 0.7em 1.6em;
+  background: linear-gradient(135deg, var(--accent-color), #3b82f6);
+  color: #ffffff;
+  font-weight: 600;
   cursor: pointer;
+  letter-spacing: 0.3px;
   transition: all 0.3s ease;
   box-shadow: var(--card-shadow);
 }
 
 a.button:hover,
 button:hover {
-  background-color: var(--link-hover-color);
+  background: linear-gradient(135deg, var(--accent-hover), #2563eb);
   transform: translateY(-2px);
   box-shadow: var(--hover-shadow);
 }
 
-button:disabled {
-  background-color: var(--light-color);
-  color: #999;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-/* ✨ Secondary button */
 a.button.secondary,
 button.secondary {
-  background-color: transparent;
-  border: 2px solid var(--link-color);
-  color: var(--link-color);
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
 }
+
 a.button.secondary:hover,
 button.secondary:hover {
-  background-color: var(--link-color);
+  background: var(--accent-color);
   color: #fff;
 }
 
 /* ✨ Images */
 main img {
   max-width: 100%;
-  width: auto;
   height: auto;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: var(--card-shadow);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: all 0.4s ease;
 }
 main img:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
   box-shadow: var(--hover-shadow);
-}
-
-/* ✨ Icons */
-.icon {
-  display: inline-block;
-  height: 24px;
-  width: 24px;
-}
-.icon img {
-  height: 100%;
-  width: 100%;
 }
 
 /* ✨ Sections */
@@ -235,19 +213,29 @@ main > .section:first-of-type {
   margin-top: 0;
 }
 
-/* ✨ Light sections */
+/* ✨ Light or Highlight Sections */
 main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
-  margin: 0;
+  background: linear-gradient(to bottom right, #f8fafc, #eef2f6);
   padding: 60px 0;
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
+  border-radius: 0;
 }
 
 @media (width >= 900px) {
   main > .section > div {
     padding: 0 32px;
   }
+}
+
+/* ✨ Smooth Fade Animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body.appear main > .section {
+  animation: fadeUp 0.6s ease forwards;
 }
