@@ -1,198 +1,25 @@
-/*
- * Modern Professional Elegant Theme
- * Unified for Header, Hero, Cards, Buttons, Sections, and Text
- */
-
-:root {
-  /* Theme Colors */
-  --background-color: #f9fbfd;
-  --text-color: #222831;
-  --heading-color: #1b263b;
-  --accent-color: #4f46e5; /* Indigo Blue */
-  --accent-hover: #4338ca;
-  --highlight-bg: #eef2ff;
-  --card-bg: #ffffff;
-  --border-color: #d8dee9;
-  --shadow-light: rgba(0, 0, 0, 0.08);
-  --shadow-hover: rgba(0, 0, 0, 0.15);
-
-  /* Typography */
-  --body-font-family: "Inter", "Roboto", sans-serif;
-  --heading-font-family: "Poppins", sans-serif;
-
-  /* Font Sizes */
-  --body-font-size-m: 17px;
-  --heading-font-size-xl: 42px;
-  --heading-font-size-l: 32px;
-  --heading-font-size-m: 26px;
-  --heading-font-size-s: 22px;
-
-  /* Layout */
-  --nav-height: 56px;
+/* Footer */
+footer {
+  background: #fff !important;
+  text-align: center !important;
+  padding: 30px 0 !important;
+  border-top: 1px solid var(--border-color) !important;
+  box-shadow: 0 -1px 6px var(--shadow-light) !important;
 }
 
-/* Base Layout */
-body {
-  margin: 0;
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
-  background: linear-gradient(to bottom right, #f9fbfd, #eaf0f8);
-  color: var(--text-color);
-  line-height: 1.7;
-  transition: all 0.3s ease-in-out;
-}
-
-/* Slim Header */
-header {
-  height: var(--nav-height);
-  background: #ffffff;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  display: flex;
-  align-items: center;
-  padding: 0 24px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-header .header,
-footer .footer {
-  visibility: hidden;
-}
-header .header[data-block-status="loaded"],
-footer .footer[data-block-status="loaded"] {
-  visibility: visible;
-}
-
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
-  font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
-  color: var(--heading-color);
-  letter-spacing: 0.3px;
-  scroll-margin: 40px;
-}
-
-/* Hero Block - Transparent Text Background */
-.hero h1, .hero h2, .hero h3,
-.hero p, .hero span {
+footer p {
   background: transparent !important;
-  padding: 0;
   box-shadow: none !important;
-  display: inline;
-  color: var(--heading-color);
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--text-color) !important;
 }
 
-/* Paragraphs & Lists with Light Background */
-p, ul, ol {
-  background: var(--card-bg);
-  padding: 14px 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px var(--shadow-light);
-  margin: 20px 0;
-  line-height: 1.7;
-  border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
-}
-p:hover, ul:hover, ol:hover {
+/* Hover effects for p, ul, ol */
+p:hover,
+ul:hover,
+ol:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 14px var(--shadow-hover);
-}
-
-/* Links */
-a:any-link {
-  color: var(--accent-color);
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-a:hover {
-  color: var(--accent-hover);
-  text-shadow: 0 0 4px rgba(79, 70, 229, 0.2);
-}
-
-/* Buttons */
-a.button:any-link, button {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--accent-color), #6366f1);
-  color: #fff;
-  font-weight: 600;
-  border: none;
-  border-radius: 2em;
-  padding: 0.8em 1.8em;
-  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.2);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-a.button:hover, button:hover {
-  background: linear-gradient(135deg, #6366f1, #4338ca);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(67, 56, 202, 0.25);
-}
-a.button:active, button:active {
-  transform: scale(0.97);
-}
-a.button.secondary, button.secondary {
-  background: transparent;
-  border: 2px solid var(--accent-color);
-  color: var(--accent-color);
-}
-a.button.secondary:hover, button.secondary:hover {
-  background: var(--accent-color);
-  color: #fff;
-  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3);
-}
-
-/* Cards / Sections */
-.section {
-  margin: 60px auto;
-  padding: 40px 20px;
-  background: linear-gradient(180deg, #ffffff, #f3f6fb);
-  border-radius: 16px;
-  box-shadow: 0 8px 24px var(--shadow-light);
-  transition: all 0.4s ease;
-  max-width: 1200px;
-}
-.section:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px var(--shadow-hover);
-}
-
-/* Highlight Sections */
-.section.highlight {
-  background: linear-gradient(135deg, #e0e7ff, #f3f6fb);
-  border-left: 4px solid var(--accent-color);
-  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.15);
-}
-
-/* Images */
-img {
-  max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px var(--shadow-light);
-  transition: all 0.4s ease;
-}
-img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 24px var(--shadow-hover);
-}
-
-/* Fade Animation */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.section {
-  animation: fadeUp 0.7s ease forwards;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  h1 { font-size: 34px; }
-  h2 { font-size: 28px; }
-  h3 { font-size: 22px; }
-  p { font-size: 16px; }
 }
