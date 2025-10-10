@@ -1,21 +1,24 @@
 /* ==================================== */
 
-/* ========== 1. Theme Variables (Recap for context) ========== */
+/* ========== 1. Theme Variables ========== */
 
 /* ==================================== */
-
 :root {
   /* Core Colors */
-  --primary-color: #333;       /* Dark text/bold elements */
-  --accent-color: #ff6347;     /* Main CTA / Red */
-  --secondary-accent: #00bcd4;  /* Link/Hover / Cyan */
-  --tertiary-color: #ffc107;   /* Secondary CTA / Amber */
-  
+  --primary-color: #1e2a38;       /* Dark text / headings */
+  --accent-color: #ff6b6b;        /* Main CTA / Highlight */
+  --secondary-accent: #2c3e50;    /* Links, hover effects */
+  --tertiary-color: #ffc107;      /* Secondary CTA */
+
   /* Backgrounds & Surfaces */
-  --bg-main: #f4f4f4;
-  --bg-surface: #fff;
-  --text-dark: #333;
+  --bg-main: #f7f7f7;            /* Main page background */
+  --bg-surface: #fff;            /* Cards, sections */
+  --text-dark: #1e2a38;
   --text-light: #777;
+
+  /* Typography */
+  --font-primary: 'Roboto', sans-serif;
+  --font-heading: 'Lato', sans-serif;
 
   /* Spacing & Layout */
   --space-unit: 8px;
@@ -26,102 +29,84 @@
   /* Shadows */
   --shadow-subtle: 0 1px 3px rgb(0 0 0 / 8%);
   --shadow-elevated: 0 10px 30px rgb(0 0 0 / 15%);
-  --shadow-cta: 0 8px 20px rgb(255 99 71 / 40%); /* Custom shadow for accent color */
+  --shadow-cta: 0 8px 20px rgb(255 107 107 / 40%);
 
   /* Animation */
-  --transition-speed: 0.35s; /* Slightly faster for snappier feel */
+  --transition-speed: 0.35s;
 }
 
 /* ==================================== */
 
-/* ========== 2. Section & Layout Enhancements ========== */
-
-/* (Focusing on modern separation and structure) */
+/* ========== 2. Layout & Sections ========== */
 
 /* ==================================== */
-
-/* General Section Container */
 .content-section {
   padding: 5rem 10%;
   max-width: var(--max-width);
-
-  /* Added vertical margin to clearly separate sections */
-  margin: 4rem auto; 
+  margin: 4rem auto;
   background: var(--bg-surface);
-  border: 1px solid rgb(0 0 0 / 5%); /* Subtle inner border */
+  border: 1px solid rgb(0 0 0 / 5%);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-subtle);
   position: relative;
   overflow: hidden;
-
-  /* Added a lift effect on hover for an interactive feel */
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
-/* Specificity: .content-section:hover is after .content-section (Stylelint Compliant) */
 .content-section:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-elevated);
 }
 
-/* Section Title Styling (Modern, Animated) */
+/* Section Titles */
 .content-section h2 {
+  font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--primary-color);
   margin-bottom: 2rem;
   position: relative;
   display: inline-block;
-
-  /* Clear line separator under title */
-  padding-bottom: 0.5rem; 
+  padding-bottom: 0.5rem;
   letter-spacing: -0.5px;
-
-  /* Initial state for entrance animation */
   opacity: 0;
   transform: translateY(20px);
 }
 
-/* Underline Effect for Titles */
 .content-section h2::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 40%; /* Modern shorter underline */
+  width: 40%;
   height: 4px;
   background-color: var(--accent-color);
   border-radius: 2px;
 }
 
-/* Paragraph Styling */
+/* Paragraphs */
 .content-section p {
+  font-family: var(--font-primary);
   font-size: 1.05rem;
   color: var(--text-light);
   max-width: 800px;
   margin-bottom: 1.5rem;
   line-height: 1.75;
-
-  /* Initial state for text animation */
   opacity: 0;
 }
 
 /* ==================================== */
 
-/* ========== 3. Modern Button (CTA) Styles ========== */
-
-/* (Focusing on visual hierarchy and interaction) */
+/* ========== 3. Buttons ========== */
 
 /* ==================================== */
-
-/* Base Button Style - Must be declared before :hover/focus (Stylelint Compliant) */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 14px 30px;
   border: none;
-  border-radius: 50px; /* Pill shape for modern look */
+  border-radius: 50px;
   background: var(--accent-color);
   color: var(--bg-surface);
   text-decoration: none;
@@ -129,21 +114,17 @@
   font-size: 1rem;
   cursor: pointer;
   box-shadow: var(--shadow-subtle);
-
-  /* Smooth transition for multiple properties */
-  transition: all var(--transition-speed) cubic-bezier(0.2, 0.8, 0.2, 1); 
+  transition: all var(--transition-speed) cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Primary Button Hover/Focus (More specific selector) */
 .btn:hover,
 .btn:focus {
-  background: var(--secondary-accent); /* Color shift on hover */
-  transform: translateY(-3px); /* Subtle lift */
-  box-shadow: var(--shadow-cta); /* High-impact, colored shadow */
-  outline: none; /* Remove default focus outline */
+  background: var(--secondary-accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-cta);
+  outline: none;
 }
 
-/* Secondary Button Style - Must be declared before :hover/focus (Stylelint Compliant) */
 .btn-secondary {
   background: transparent;
   color: var(--primary-color);
@@ -151,16 +132,14 @@
   box-shadow: none;
 }
 
-/* Secondary Button Hover/Focus (More specific selector) */
 .btn-secondary:hover,
 .btn-secondary:focus {
   background: var(--tertiary-color);
   color: var(--text-dark);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgb(255 193 7 / 30%); /* Custom shadow for tertiary color */
+  box-shadow: 0 5px 15px rgb(255 193 7 / 30%);
 }
 
-/* Button Icon Style (Example for a subtle arrow) */
 .btn-icon-right::after {
   content: '→';
   font-size: 1.2em;
@@ -169,18 +148,14 @@
 }
 
 .btn:hover .btn-icon-right::after {
-  transform: translateX(3px); /* Slide arrow slightly on hover */
+  transform: translateX(3px);
 }
 
 /* ==================================== */
 
-/* ========== 4. Text and Title Animations ========== */
-
-/* (Stylelint Compliant: keyframes in kebab-case) */
+/* ========== 4. Animations ========== */
 
 /* ==================================== */
-
-/* Title Entrance Animation */
 @keyframes slide-in-bottom {
   0% {
     opacity: 0;
@@ -193,7 +168,6 @@
   }
 }
 
-/* Text Entrance Animation */
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -204,23 +178,86 @@
   }
 }
 
-/* Apply Animations */
 .section-title.animate {
-  animation: slide-in-bottom 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Bouncy finish */
+  animation: slide-in-bottom 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-/* We'd typically use JavaScript to detect when the section is in view before applying the animation, 
-   but for pure CSS, we can add classes for staggered effects. */
 .section-text-line-1.animate {
-  animation: fade-in 0.8s ease-out 0.2s forwards; /* Delay start */
+  animation: fade-in 0.8s ease-out 0.2s forwards;
 }
 
 .section-text-line-2.animate {
   animation: fade-in 0.8s ease-out 0.4s forwards;
 }
 
-/* Example Usage for titles/text in HTML:
-   <h2 class="section-title animate">My Projects</h2>
-   <p class="section-text-line-1 animate">This is the first line of text.</p>
-   <p class="section-text-line-2 animate">This is the second line of text.</p>
-*/
+/* ==================================== */
+
+/* ========== 5. Utility & Misc ========== */
+
+/* ==================================== */
+
+/* Responsive Layout for Columns */
+.column-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.column {
+  flex: 1 1 300px;
+}
+
+/* Footer */
+footer {
+  background: var(--bg-main);
+  color: var(--text-dark);
+  text-align: center;
+  padding: 30px 0;
+  border-top: 1px solid rgb(0 0 0 / 10%);
+  box-shadow: 0 -1px 6px rgb(0 0 0 / 5%);
+}
+
+footer a {
+  color: var(--secondary-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--accent-color);
+}
+
+/* Card / Featured Posts */
+.card {
+  background: var(--bg-surface);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.card img {
+  width: 100%;
+  border-bottom: 1px solid rgb(0 0 0 / 5%);
+  display: block;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgb(30 42 56 / 30%), rgb(255 107 107 / 30%));
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.card:hover .card-overlay {
+  opacity: 1;
+}
