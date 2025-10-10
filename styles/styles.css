@@ -1,25 +1,226 @@
-/* Footer */
-footer {
-  background: #fff !important;
-  text-align: center !important;
-  padding: 30px 0 !important;
-  border-top: 1px solid var(--border-color) !important;
-  box-shadow: 0 -1px 6px var(--shadow-light) !important;
+/* ==================================== */
+
+/* ========== 1. Theme Variables (Recap for context) ========== */
+
+/* ==================================== */
+
+:root {
+  /* Core Colors */
+  --primary-color: #333;       /* Dark text/bold elements */
+  --accent-color: #ff6347;     /* Main CTA / Red */
+  --secondary-accent: #00bcd4;  /* Link/Hover / Cyan */
+  --tertiary-color: #ffc107;   /* Secondary CTA / Amber */
+  
+  /* Backgrounds & Surfaces */
+  --bg-main: #f4f4f4;
+  --bg-surface: #fff;
+  --text-dark: #333;
+  --text-light: #777;
+
+  /* Spacing & Layout */
+  --space-unit: 8px;
+  --max-width: 1200px;
+  --border-radius-sm: 4px;
+  --border-radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-subtle: 0 1px 3px rgb(0 0 0 / 8%);
+  --shadow-elevated: 0 10px 30px rgb(0 0 0 / 15%);
+  --shadow-cta: 0 8px 20px rgb(255 99 71 / 40%); /* Custom shadow for accent color */
+
+  /* Animation */
+  --transition-speed: 0.35s; /* Slightly faster for snappier feel */
 }
 
-footer p {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  color: var(--text-color) !important;
+/* ==================================== */
+
+/* ========== 2. Section & Layout Enhancements ========== */
+
+/* (Focusing on modern separation and structure) */
+
+/* ==================================== */
+
+/* General Section Container */
+.content-section {
+  padding: 5rem 10%;
+  max-width: var(--max-width);
+
+  /* Added vertical margin to clearly separate sections */
+  margin: 4rem auto; 
+  background: var(--bg-surface);
+  border: 1px solid rgb(0 0 0 / 5%); /* Subtle inner border */
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+  overflow: hidden;
+
+  /* Added a lift effect on hover for an interactive feel */
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
-/* Hover effects for p, ul, ol */
-p:hover,
-ul:hover,
-ol:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px var(--shadow-hover);
+/* Specificity: .content-section:hover is after .content-section (Stylelint Compliant) */
+.content-section:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-elevated);
 }
+
+/* Section Title Styling (Modern, Animated) */
+.content-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+
+  /* Clear line separator under title */
+  padding-bottom: 0.5rem; 
+  letter-spacing: -0.5px;
+
+  /* Initial state for entrance animation */
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Underline Effect for Titles */
+.content-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40%; /* Modern shorter underline */
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+/* Paragraph Styling */
+.content-section p {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  max-width: 800px;
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+
+  /* Initial state for text animation */
+  opacity: 0;
+}
+
+/* ==================================== */
+
+/* ========== 3. Modern Button (CTA) Styles ========== */
+
+/* (Focusing on visual hierarchy and interaction) */
+
+/* ==================================== */
+
+/* Base Button Style - Must be declared before :hover/focus (Stylelint Compliant) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 50px; /* Pill shape for modern look */
+  background: var(--accent-color);
+  color: var(--bg-surface);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-subtle);
+
+  /* Smooth transition for multiple properties */
+  transition: all var(--transition-speed) cubic-bezier(0.2, 0.8, 0.2, 1); 
+}
+
+/* Primary Button Hover/Focus (More specific selector) */
+.btn:hover,
+.btn:focus {
+  background: var(--secondary-accent); /* Color shift on hover */
+  transform: translateY(-3px); /* Subtle lift */
+  box-shadow: var(--shadow-cta); /* High-impact, colored shadow */
+  outline: none; /* Remove default focus outline */
+}
+
+/* Secondary Button Style - Must be declared before :hover/focus (Stylelint Compliant) */
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--tertiary-color);
+  box-shadow: none;
+}
+
+/* Secondary Button Hover/Focus (More specific selector) */
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: var(--tertiary-color);
+  color: var(--text-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgb(255 193 7 / 30%); /* Custom shadow for tertiary color */
+}
+
+/* Button Icon Style (Example for a subtle arrow) */
+.btn-icon-right::after {
+  content: '→';
+  font-size: 1.2em;
+  line-height: 1;
+  transition: transform var(--transition-speed) ease;
+}
+
+.btn:hover .btn-icon-right::after {
+  transform: translateX(3px); /* Slide arrow slightly on hover */
+}
+
+/* ==================================== */
+
+/* ========== 4. Text and Title Animations ========== */
+
+/* (Stylelint Compliant: keyframes in kebab-case) */
+
+/* ==================================== */
+
+/* Title Entrance Animation */
+@keyframes slide-in-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Text Entrance Animation */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Apply Animations */
+.section-title.animate {
+  animation: slide-in-bottom 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Bouncy finish */
+}
+
+/* We'd typically use JavaScript to detect when the section is in view before applying the animation, 
+   but for pure CSS, we can add classes for staggered effects. */
+.section-text-line-1.animate {
+  animation: fade-in 0.8s ease-out 0.2s forwards; /* Delay start */
+}
+
+.section-text-line-2.animate {
+  animation: fade-in 0.8s ease-out 0.4s forwards;
+}
+
+/* Example Usage for titles/text in HTML:
+   <h2 class="section-title animate">My Projects</h2>
+   <p class="section-text-line-1 animate">This is the first line of text.</p>
+   <p class="section-text-line-2 animate">This is the second line of text.</p>
+*/
